@@ -36,6 +36,7 @@ button {
 	margin: 0 auto;
 	padding: 30px 20px;
 }
+
 .header {
 	background: white;
 	padding: 20px;
@@ -45,11 +46,13 @@ button {
 	justify-content: space-between;
 	align-items: center;
 }
+
 .nav-list {
 	display: flex;
 	gap: 20px;
 	font-weight: 600;
 }
+
 footer {
 	background: white;
 	border-top: 1px solid #ddd;
@@ -70,12 +73,27 @@ footer {
 
 .car-card {
 	background: white;
-	border-radius: 12px;
+	border-radius: 16px;
 	padding: 20px;
 	border: 1px solid #ddd;
 	transition: 0.2s;
+	position: relative;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	-ms-border-radius: 16px;
+	-o-border-radius: 16px;
 }
 
 .car-card:hover {
 	transform: translateY(-3px);
+}
+
+.favorite-btn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+
+	border: none;
+	background: transparent;
+	font-size: 24px;
 }

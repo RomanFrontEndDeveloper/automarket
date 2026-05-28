@@ -8,6 +8,7 @@ const MainLayout = () => {
 			<Header />
 
 			<main className='main'>
+				{/* <h2>hhhhh</h2> буде зображатися на всіх сторінках */}
 				<Outlet />
 			</main>
 

@@ -10,6 +10,7 @@ export const cars: Car[] = [
 		price: 32000,
 		city: 'Kyiv',
 		image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e',
+		isFavorite: true,
 	},
 	{
 		id: 2,
@@ -20,6 +21,7 @@ export const cars: Car[] = [
 		price: 28000,
 		city: 'Lviv',
 		image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6',
+		isFavorite: true,
 	},
 	{
 		id: 3,
@@ -30,6 +32,7 @@ export const cars: Car[] = [
 		price: 24000,
 		city: 'Kharkiv',
 		image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb',
+		isFavorite: true,
 	},
 	{
 		id: 4,
@@ -40,6 +43,7 @@ export const cars: Car[] = [
 		price: 45000,
 		city: 'Odessa',
 		image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8',
+		isFavorite: false,
 	},
 	{
 		id: 5,
@@ -50,6 +54,7 @@ export const cars: Car[] = [
 		price: 18000,
 		city: 'Dnipro',
 		image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70',
+		isFavorite: true,
 	},
 	{
 		id: 6,
@@ -60,6 +65,7 @@ export const cars: Car[] = [
 		price: 21000,
 		city: 'Vinnytsia',
 		image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341',
+		isFavorite: false,
 	},
 	{
 		id: 7,
@@ -70,6 +76,7 @@ export const cars: Car[] = [
 		price: 17000,
 		city: 'Poltava',
 		image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7',
+		isFavorite: false,
 	},
 	{
 		id: 8,
@@ -80,5 +87,6 @@ export const cars: Car[] = [
 		price: 52000,
 		city: 'Kyiv',
 		image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89',
+		isFavorite: true,
 	},
 ];

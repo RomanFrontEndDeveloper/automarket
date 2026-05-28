@@ -7,4 +7,5 @@ export type Car = {
 	price: number;
 	city: string;
 	image: string;
+	isFavorite: boolean;
 };

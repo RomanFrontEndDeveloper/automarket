@@ -1,4 +1,5 @@
 import { cars } from '../data/cars';
+import CarCard from '../components/CarCard/CarCard';
 
 const HomePage = () => {
 	return (
@@ -7,15 +8,7 @@ const HomePage = () => {
 
 			<div className='cars-grid'>
 				{cars.map((car) => (
-					<div className='car-card' key={car.id}>
-						<h2>{car.title}</h2>
-
-						<p>{car.year}</p>
-
-						<p>${car.price}</p>
-
-						<p>{car.city}</p>
-					</div>
+					<CarCard key={car.id} car={car} />
 				))}
 			</div>
 		</section>
