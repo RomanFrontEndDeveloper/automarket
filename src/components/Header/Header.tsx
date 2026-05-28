@@ -2,7 +2,7 @@ import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
 	return (
-		<header>
+		<header className='header'>
 			<h2>🚗 AutoMarket</h2>
 
 			<Navigation />
