@@ -1,22 +1,36 @@
 import { useParams } from 'react-router-dom';
 import { cars } from '../data/cars';
 
-/// велика картка
 const SingleCarPage = () => {
 	const { id } = useParams();
 
-	const car = cars.find((car) => car.id === Number(id));
+	const car = cars.find((car) => car.id === Number(id)); // Бо useParams() повертає string
 
 	return (
-		<div>
-			<h1>{car?.title}</h1>
+		<div className='single-car'>
+			{!car ? (
+				<h1>Car not found</h1>
+			) : (
+				<>
+					<h1>{car.title}</h1>
 
-			<p>Year: {car?.year}</p>
-			<p>id: {car?.id}</p>
+					<img src={car.image} alt={car.title} />
 
-			<p>Price: ${car?.price}</p>
+					<p>ID: {car.id}</p>
 
-			<p>City: {car?.city}</p>
+					<p>Brand: {car.brand}</p>
+
+					<p>Model: {car.model}</p>
+
+					<p>Year: {car.year}</p>
+
+					<p>Price: ${car.price}</p>
+
+					<p>City: {car.city}</p>
+
+					<p>Favorite: {car.isFavorite ? '❤️ Yes' : '🤍 No'}</p>
+				</>
+			)}
 		</div>
 	);
 };

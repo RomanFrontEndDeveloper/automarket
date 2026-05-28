@@ -4,7 +4,7 @@ import CarCard from '../components/CarCard/CarCard';
 const HomePage = () => {
 	return (
 		<section>
-			<h1 className='page-title'>Cars List</h1>
+			<h1 className='page-title'>Find Your Perfect Car</h1>
 
 			<div className='cars-grid'>
 				{cars.map((car) => (

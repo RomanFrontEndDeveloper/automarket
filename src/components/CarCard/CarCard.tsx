@@ -4,23 +4,29 @@ import type { Car } from '../../types/car.types';
 type Props = {
 	car: Car;
 };
-/// маленька
+
+/// маленька картка
 const CarCard = ({ car }: Props) => {
 	return (
-		<Link to={`/cars/${car.id}`}>
+		<Link to={`/cars/${car.id}`} className='car-link'>
 			<div className='car-card'>
-				<h2>{car.title}</h2>
+				<img src={car.image} alt={car.title} className='car-image' />
 
-				<p>{car.year}</p>
+				<div className='car-content'>
+					<div className='car-header'>
+						<h2>{car.title}</h2>
 
-				<p>${car.price}</p>
+						<button className='favorite-btn'>
+							{car.isFavorite ? '❤️' : '♡'}
+						</button>
+					</div>
 
-				<p>{car.city}</p>
-				<p>{car.id}</p>
+					<p>{car.year}</p>
 
-				<button className='favorite-btn'>
-					{car.isFavorite ? '❤️' : '🤍'}
-				</button>
+					<p>${car.price}</p>
+
+					<p>{car.city}</p>
+				</div>
 			</div>
 		</Link>
 	);

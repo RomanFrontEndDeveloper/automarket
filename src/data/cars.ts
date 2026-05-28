@@ -64,7 +64,7 @@ export const cars: Car[] = [
 		year: 2020,
 		price: 21000,
 		city: 'Vinnytsia',
-		image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341',
+		image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7',
 		isFavorite: false,
 	},
 	{

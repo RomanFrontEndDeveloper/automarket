@@ -6,6 +6,8 @@ import ProfilePage from '../pages/ProfilePage';
 import CarsPage from '../pages/CarsPage';
 import DashboardPage from '../pages/DashboardPage';
 import SingleCarPage from '../pages/SingleCarPage';
+import RegisterPage from '../pages/RegisterPage';
+import AdminPage from '../pages/AdminPage';
 
 export const router = createBrowserRouter([
 	{
@@ -29,12 +31,20 @@ export const router = createBrowserRouter([
 				element: <ProfilePage />,
 			},
 			{
+				path: 'register',
+				element: <RegisterPage />,
+			},
+			{
 				path: 'dashboard',
 				element: <DashboardPage />,
 			},
 			{
 				path: 'cars/:id',
 				element: <SingleCarPage />,
+			},
+			{
+				path: 'admin',
+				element: <AdminPage />,
 			},
 		],
 	},
