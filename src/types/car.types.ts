@@ -8,4 +8,6 @@ export type Car = {
 	city: string;
 	image: string;
 	isFavorite: boolean;
+	fuel: string;
+	transmission: string;
 };
