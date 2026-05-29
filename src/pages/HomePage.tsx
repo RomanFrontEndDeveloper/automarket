@@ -12,30 +12,81 @@ const HomePage = () => {
 
 	const [selectedTransmission, setSelectedTransmission] = useState('');
 
-	const filteredCars = cars.filter((car) => {
-		const matchesSearch = car.title
-			.toLowerCase()
-			.includes(search.toLowerCase());
+	const [sortBy, setSortBy] = useState('');
 
-		const matchesBrand =
-			selectedBrand === '' || car.brand === selectedBrand;
+	const [minPrice, setMinPrice] = useState('');
 
-		const matchesCity = selectedCity === '' || car.city === selectedCity;
+	const [maxPrice, setMaxPrice] = useState('');
 
-		const matchesFuel = selectedFuel === '' || car.fuel === selectedFuel;
+	const filteredCars = cars
+		.filter((car) => {
+			// 🔍 пошук по title
+			const matchesSearch = car.title
+				.toLowerCase()
+				.includes(search.toLowerCase());
 
-		const matchesTransmission =
-			selectedTransmission === '' ||
-			car.transmission === selectedTransmission;
+			// 🚗 бренд
+			let matchesBrand = true;
 
-		return (
-			matchesSearch &&
-			matchesBrand &&
-			matchesCity &&
-			matchesFuel &&
-			matchesTransmission
-		);
-	});
+			if (selectedBrand !== '') {
+				matchesBrand = car.brand === selectedBrand;
+			}
+
+			// 🏙 місто
+			let matchesCity = true;
+
+			if (selectedCity !== '') {
+				matchesCity = car.city === selectedCity;
+			}
+
+			// ⛽ паливо
+			let matchesFuel = true;
+
+			if (selectedFuel !== '') {
+				matchesFuel = car.fuel === selectedFuel;
+			}
+
+			// ⚙ коробка передач
+			let matchesTransmission = true;
+
+			if (selectedTransmission !== '') {
+				matchesTransmission = car.transmission === selectedTransmission;
+			}
+			///////////////
+			const matchesMinPrice =
+				minPrice === '' || car.price >= Number(minPrice);
+
+			const matchesMaxPrice =
+				maxPrice === '' || car.price <= Number(maxPrice);
+			// повертаємо тільки машини,
+			// які пройшли всі перевірки
+			return (
+				matchesSearch &&
+				matchesBrand &&
+				matchesCity &&
+				matchesFuel &&
+				matchesTransmission &&
+				matchesMinPrice &&
+				matchesMaxPrice
+			);
+		})
+		.sort((a, b) => {
+			if (sortBy === 'cheap') {
+				return a.price - b.price;
+			}
+
+			if (sortBy === 'expensive') {
+				return b.price - a.price;
+			}
+
+			if (sortBy === 'newest') {
+				return b.year - a.year;
+			}
+
+			return 0;
+		});
+
+	///////////////////////////
 
 	const resetFilters = () => {
 		setSearch('');
@@ -43,6 +94,9 @@ const HomePage = () => {
 		setSelectedCity('');
 		setSelectedFuel('');
 		setSelectedTransmission('');
+		setMinPrice('');
+		setMaxPrice('');
+		setSortBy('');
 	};
 
 	return (
@@ -122,6 +176,34 @@ const HomePage = () => {
 				<button className='reset-btn' onClick={resetFilters}>
 					Reset Filters
 				</button>
+				<div className='filters'>
+					<input
+						type='number'
+						placeholder='Min price'
+						value={minPrice}
+						onChange={(e) => setMinPrice(e.target.value)}
+					/>
+
+					<input
+						type='number'
+						placeholder='Max price'
+						value={maxPrice}
+						onChange={(e) => setMaxPrice(e.target.value)}
+					/>
+
+					<select
+						value={sortBy}
+						onChange={(e) => setSortBy(e.target.value)}
+					>
+						<option value=''>Sort By</option>
+
+						<option value='cheap'>Cheap First</option>
+
+						<option value='expensive'>Expensive First</option>
+
+						<option value='newest'>Newest</option>
+					</select>
+				</div>
 			</div>
 
 			<div className='cars-grid'>
