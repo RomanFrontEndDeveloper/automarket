@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { cars } from '../data/cars';
+import { cars as mockCars } from '../data/cars';
 import CarCard from '../components/CarCard/CarCard';
 
 const HomePage = () => {
@@ -17,6 +17,12 @@ const HomePage = () => {
 	const [minPrice, setMinPrice] = useState('');
 
 	const [maxPrice, setMaxPrice] = useState('');
+
+	const [currentPage, setCurrentPage] = useState(1);
+
+	const [cars, setCars] = useState(mockCars);
+
+	const carsPerPage = 3;
 
 	const filteredCars = cars
 		.filter((car) => {
@@ -53,11 +59,17 @@ const HomePage = () => {
 				matchesTransmission = car.transmission === selectedTransmission;
 			}
 			///////////////
-			const matchesMinPrice =
-				minPrice === '' || car.price >= Number(minPrice);
+			let matchesMinPrice = true;
 
-			const matchesMaxPrice =
-				maxPrice === '' || car.price <= Number(maxPrice);
+			if (minPrice !== '') {
+				matchesMinPrice = car.price >= Number(minPrice);
+			}
+
+			let matchesMaxPrice = true;
+
+			if (maxPrice !== '') {
+				matchesMaxPrice = car.price <= Number(maxPrice);
+			}
 			// повертаємо тільки машини,
 			// які пройшли всі перевірки
 			return (
@@ -88,6 +100,12 @@ const HomePage = () => {
 
 	///////////////////////////
 
+	const startIndex = (currentPage - 1) * carsPerPage;
+
+	const endIndex = startIndex + carsPerPage;
+
+	const paginatedCars = filteredCars.slice(startIndex, endIndex);
+
 	const resetFilters = () => {
 		setSearch('');
 		setSelectedBrand('');
@@ -99,6 +117,20 @@ const HomePage = () => {
 		setSortBy('');
 	};
 
+	const toggleFavorite = (id: number) => {
+		const updatedCars = cars.map((car) => {
+			if (car.id === id) {
+				return {
+					...car,
+					isFavorite: !car.isFavorite,
+				};
+			}
+
+			return car;
+		});
+
+		setCars(updatedCars);
+	};
 	return (
 		<section>
 			<h1 className='page-title'>Find Your Perfect Car</h1>
@@ -107,50 +139,84 @@ const HomePage = () => {
 				type='text'
 				placeholder='Search car...'
 				value={search}
-				onChange={(e) => setSearch(e.target.value)}
+				onChange={(e) => {
+					setSearch(e.target.value);
+					setCurrentPage(1);
+				}}
 				className='search-input'
 			/>
 
 			<div className='filters'>
 				<select
 					value={selectedBrand}
-					onChange={(e) => setSelectedBrand(e.target.value)}
+					onChange={(e) => {
+						setSelectedBrand(e.target.value);
+						setCurrentPage(1);
+					}}
 				>
 					<option value=''>All Brands</option>
+
 					<option value='BMW'>BMW</option>
+
 					<option value='Audi'>Audi</option>
+
 					<option value='Toyota'>Toyota</option>
+
 					<option value='Mercedes'>Mercedes</option>
+
 					<option value='Volkswagen'>Volkswagen</option>
+
 					<option value='Honda'>Honda</option>
+
 					<option value='Ford'>Ford</option>
+
 					<option value='Tesla'>Tesla</option>
 				</select>
 
 				<select
 					value={selectedCity}
-					onChange={(e) => setSelectedCity(e.target.value)}
+					onChange={(e) => {
+						setSelectedCity(e.target.value);
+						setCurrentPage(1);
+					}}
 				>
 					<option value=''>All Cities</option>
+
 					<option value='Kyiv'>Kyiv</option>
+
 					<option value='Lviv'>Lviv</option>
+
 					<option value='Kharkiv'>Kharkiv</option>
+
 					<option value='Odessa'>Odessa</option>
+
 					<option value='Dnipro'>Dnipro</option>
+
 					<option value='Vinnytsia'>Vinnytsia</option>
+
 					<option value='Poltava'>Poltava</option>
+
 					<option value='Ternopil'>Ternopil</option>
+
 					<option value='Khmelnytskyi'>Khmelnytskyi</option>
+
 					<option value='Zhytomyr'>Zhytomyr</option>
+
 					<option value='Rivne'>Rivne</option>
+
 					<option value='Ivano-Frankivsk'>Ivano-Frankivsk</option>
+
 					<option value='Cherkasy'>Cherkasy</option>
+
 					<option value='Uzhhorod'>Uzhhorod</option>
 				</select>
 
 				<select
 					value={selectedFuel}
-					onChange={(e) => setSelectedFuel(e.target.value)}
+					onChange={(e) => {
+						setSelectedFuel(e.target.value);
+						setCurrentPage(1);
+					}}
 				>
 					<option value=''>All Fuel</option>
 
@@ -165,7 +231,10 @@ const HomePage = () => {
 
 				<select
 					value={selectedTransmission}
-					onChange={(e) => setSelectedTransmission(e.target.value)}
+					onChange={(e) => {
+						setSelectedTransmission(e.target.value);
+						setCurrentPage(1);
+					}}
 				>
 					<option value=''>All Transmission</option>
 
@@ -173,43 +242,76 @@ const HomePage = () => {
 
 					<option value='Manual'>Manual</option>
 				</select>
+
+				{/* перенос на новий рядок */}
+				<div className='line-break'></div>
+				<input
+					type='number'
+					placeholder='Min price'
+					value={minPrice}
+					onChange={(e) => {
+						setMinPrice(e.target.value);
+						setCurrentPage(1);
+					}}
+				/>
+
+				<input
+					type='number'
+					placeholder='Max price'
+					value={maxPrice}
+					onChange={(e) => {
+						setMaxPrice(e.target.value);
+						setCurrentPage(1);
+					}}
+				/>
+
+				<select
+					value={sortBy}
+					onChange={(e) => {
+						setSortBy(e.target.value);
+						setCurrentPage(1);
+					}}
+				>
+					<option value=''>Sort By</option>
+
+					<option value='cheap'>Cheap First</option>
+
+					<option value='expensive'>Expensive First</option>
+
+					<option value='newest'>Newest</option>
+				</select>
+
 				<button className='reset-btn' onClick={resetFilters}>
 					Reset Filters
 				</button>
-				<div className='filters'>
-					<input
-						type='number'
-						placeholder='Min price'
-						value={minPrice}
-						onChange={(e) => setMinPrice(e.target.value)}
-					/>
-
-					<input
-						type='number'
-						placeholder='Max price'
-						value={maxPrice}
-						onChange={(e) => setMaxPrice(e.target.value)}
-					/>
-
-					<select
-						value={sortBy}
-						onChange={(e) => setSortBy(e.target.value)}
-					>
-						<option value=''>Sort By</option>
-
-						<option value='cheap'>Cheap First</option>
-
-						<option value='expensive'>Expensive First</option>
-
-						<option value='newest'>Newest</option>
-					</select>
-				</div>
 			</div>
 
 			<div className='cars-grid'>
-				{filteredCars.map((car) => (
-					<CarCard key={car.id} car={car} />
+				{paginatedCars.map((car) => (
+					<CarCard
+						key={car.id}
+						car={car}
+						onToggleFavorite={toggleFavorite}
+					/>
 				))}
+			</div>
+
+			<div className='pagination'>
+				<button
+					onClick={() => setCurrentPage(currentPage - 1)}
+					disabled={currentPage === 1}
+				>
+					Prev
+				</button>
+
+				<span>Page {currentPage}</span>
+
+				<button
+					onClick={() => setCurrentPage(currentPage + 1)}
+					disabled={endIndex >= filteredCars.length}
+				>
+					Next
+				</button>
 			</div>
 		</section>
 	);

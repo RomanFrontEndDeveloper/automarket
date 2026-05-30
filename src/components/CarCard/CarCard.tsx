@@ -3,10 +3,12 @@ import type { Car } from '../../types/car.types';
 
 type Props = {
 	car: Car;
+
+	onToggleFavorite: (id: number) => void;
 };
 
 /// маленька картка
-const CarCard = ({ car }: Props) => {
+const CarCard = ({ car, onToggleFavorite }: Props) => {
 	return (
 		<Link to={`/cars/${car.id}`} className='car-link'>
 			<div className='car-card'>
@@ -16,8 +18,15 @@ const CarCard = ({ car }: Props) => {
 					<div className='car-header'>
 						<h2>{car.title}</h2>
 
-						<button className='favorite-btn'>
-							{car.isFavorite ? '❤️' : '♡'}
+						<button
+							className='favorite-btn'
+							onClick={(e) => {
+								e.preventDefault();
+
+								onToggleFavorite(car.id);
+							}}
+						>
+							{car.isFavorite ? '❤️' : '🤍'}
 						</button>
 					</div>
 
