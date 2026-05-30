@@ -10,8 +10,8 @@ type Props = {
 /// маленька картка
 const CarCard = ({ car, onToggleFavorite }: Props) => {
 	return (
-		<Link to={`/cars/${car.id}`} className='car-link'>
-			<div className='car-card'>
+		<div className='car-card'>
+			<Link to={`/cars/${car.id}`} className='car-link'>
 				<img src={car.image} alt={car.title} className='car-image' />
 
 				<div className='car-content'>
@@ -22,7 +22,6 @@ const CarCard = ({ car, onToggleFavorite }: Props) => {
 							className='favorite-btn'
 							onClick={(e) => {
 								e.preventDefault();
-
 								onToggleFavorite(car.id);
 							}}
 						>
@@ -31,13 +30,15 @@ const CarCard = ({ car, onToggleFavorite }: Props) => {
 					</div>
 
 					<p>{car.year}</p>
-
 					<p>${car.price}</p>
-
 					<p>{car.city}</p>
 				</div>
-			</div>
-		</Link>
+			</Link>
+
+			<Link to={`/cars/edit/${car.id}`} className='edit-btn'>
+				Edit Car
+			</Link>
+		</div>
 	);
 };
 

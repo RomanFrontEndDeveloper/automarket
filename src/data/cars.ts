@@ -13,6 +13,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'BMW X5 2021 року випуску в чудовому технічному та візуальному стані. Автомобіль оснащений автоматичною коробкою передач, комфортним салоном та сучасними системами безпеки.',
 	},
 	{
 		id: 2,
@@ -26,6 +28,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Audi A6 з економічним двигуном та багатою комплектацією. Просторий салон, якісні матеріали оздоблення та комфорт для далеких поїздок.',
 	},
 	{
 		id: 3,
@@ -39,6 +43,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 4,
@@ -52,6 +58,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 5,
@@ -65,6 +73,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 6,
@@ -78,6 +88,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 7,
@@ -91,6 +103,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 8,
@@ -104,6 +118,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 9,
@@ -117,6 +133,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 10,
@@ -130,6 +148,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 11,
@@ -143,6 +163,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 12,
@@ -156,6 +178,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 13,
@@ -169,6 +193,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 14,
@@ -182,6 +208,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 15,
@@ -195,6 +223,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Diesel',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 16,
@@ -208,6 +238,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 17,
@@ -221,6 +253,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Hybrid',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 18,
@@ -234,6 +268,8 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Petrol',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 19,
@@ -247,6 +283,8 @@ export const cars: Car[] = [
 		isFavorite: false,
 		fuel: 'Petrol',
 		transmission: 'Manual',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 	{
 		id: 20,
@@ -260,5 +298,7 @@ export const cars: Car[] = [
 		isFavorite: true,
 		fuel: 'Electric',
 		transmission: 'Automatic',
+		description:
+			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
 	},
 ];

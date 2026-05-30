@@ -9,6 +9,7 @@ import SingleCarPage from '../pages/SingleCarPage';
 import RegisterPage from '../pages/RegisterPage';
 import AdminPage from '../pages/AdminPage';
 import CreateCarPage from '../pages/CreateCarPage';
+import EditCarPage from '../pages/EditCarPage';
 
 export const router = createBrowserRouter([
 	{
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
 			{
 				path: '/create-car',
 				element: <CreateCarPage />,
+			},
+			{
+				path: '/cars/edit/:id',
+				element: <EditCarPage />,
 			},
 			{
 				path: 'cars',

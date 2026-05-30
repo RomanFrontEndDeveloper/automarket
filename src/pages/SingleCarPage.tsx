@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { cars } from '../data/cars';
 
@@ -27,8 +28,12 @@ const SingleCarPage = () => {
 					<p>Price: ${car.price}</p>
 
 					<p>City: {car.city}</p>
+					<p>City: {car.description}</p>
 
 					<p>Favorite: {car.isFavorite ? '❤️ Yes' : '🤍 No'}</p>
+					<Link to={`/cars/edit/${car?.id}`}>
+						<button className='edit-btn'>Edit Car</button>
+					</Link>
 				</>
 			)}
 		</div>
