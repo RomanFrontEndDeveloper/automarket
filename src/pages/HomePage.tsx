@@ -6,19 +6,12 @@ import type { Car } from '../types/car.types';
 const HomePage = () => {
 	const [search, setSearch] = useState('');
 	const [selectedBrand, setSelectedBrand] = useState('');
-
 	const [selectedCity, setSelectedCity] = useState('');
-
 	const [selectedFuel, setSelectedFuel] = useState('');
-
 	const [selectedTransmission, setSelectedTransmission] = useState('');
-
 	const [sortBy, setSortBy] = useState('');
-
 	const [minPrice, setMinPrice] = useState('');
-
 	const [maxPrice, setMaxPrice] = useState('');
-
 	const [currentPage, setCurrentPage] = useState(1);
 
 	const [cars, setCars] = useState<Car[]>(() => {
@@ -31,56 +24,65 @@ const HomePage = () => {
 		localStorage.setItem('cars', JSON.stringify(cars));
 	}, [cars]);
 
+	const brands = [
+		'BMW',
+		'Audi',
+		'Toyota',
+		'Mercedes',
+		'Volkswagen',
+		'Honda',
+		'Ford',
+		'Tesla',
+	];
+
+	const cities = [
+		'Kyiv',
+		'Lviv',
+		'Kharkiv',
+		'Odessa',
+		'Dnipro',
+		'Vinnytsia',
+		'Poltava',
+		'Ternopil',
+		'Khmelnytskyi',
+		'Zhytomyr',
+		'Rivne',
+		'Ivano-Frankivsk',
+		'Cherkasy',
+		'Uzhhorod',
+	];
+
+	const fuels = ['Petrol', 'Diesel', 'Hybrid', 'Electric'];
+
+	const transmissions = ['Automatic', 'Manual'];
+
 	const carsPerPage = 3;
 
 	const filteredCars = cars
 		.filter((car) => {
-			// 🔍 пошук по title
 			const matchesSearch = car.title
 				.toLowerCase()
 				.includes(search.toLowerCase());
 
-			// 🚗 бренд
-			let matchesBrand = true;
+			const matchesBrand =
+				selectedBrand === '' || car.brand === selectedBrand;
 
-			if (selectedBrand !== '') {
-				matchesBrand = car.brand === selectedBrand;
-			}
+			const matchesCity =
+				selectedCity === '' || car.city === selectedCity;
 
-			// 🏙 місто
-			let matchesCity = true;
+			const matchesFuel =
+				selectedFuel === '' || car.fuel === selectedFuel;
 
-			if (selectedCity !== '') {
-				matchesCity = car.city === selectedCity;
-			}
+			const matchesTransmission =
+				selectedTransmission === '' ||
+				car.transmission === selectedTransmission;
 
-			// ⛽ паливо
-			let matchesFuel = true;
+			const matchesMinPrice =
+				minPrice === '' || car.price >= Number(minPrice);
 
-			if (selectedFuel !== '') {
-				matchesFuel = car.fuel === selectedFuel;
-			}
+			const matchesMaxPrice =
+				maxPrice === '' || car.price <= Number(maxPrice);
 
-			// ⚙ коробка передач
-			let matchesTransmission = true;
-
-			if (selectedTransmission !== '') {
-				matchesTransmission = car.transmission === selectedTransmission;
-			}
-			///////////////
-			let matchesMinPrice = true;
-
-			if (minPrice !== '') {
-				matchesMinPrice = car.price >= Number(minPrice);
-			}
-
-			let matchesMaxPrice = true;
-
-			if (maxPrice !== '') {
-				matchesMaxPrice = car.price <= Number(maxPrice);
-			}
-			// повертаємо тільки машини,
-			// які пройшли всі перевірки
 			return (
 				matchesSearch &&
 				matchesBrand &&
@@ -107,13 +109,13 @@ const HomePage = () => {
 			return 0;
 		});
 
-	///////////////////////////
-
 	const startIndex = (currentPage - 1) * carsPerPage;
 
 	const endIndex = startIndex + carsPerPage;
 
 	const paginatedCars = filteredCars.slice(startIndex, endIndex);
+
+	const totalPages = Math.ceil(filteredCars.length / carsPerPage);
 
 	const resetFilters = () => {
 		setSearch('');
@@ -124,6 +126,7 @@ const HomePage = () => {
 		setMinPrice('');
 		setMaxPrice('');
 		setSortBy('');
+		setCurrentPage(1);
 	};
 
 	const toggleFavorite = (id: number) => {
@@ -161,106 +164,79 @@ const HomePage = () => {
 					value={selectedBrand}
 					onChange={(e) => {
 						setSelectedBrand(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				>
 					<option value=''>All Brands</option>
 
-					<option value='BMW'>BMW</option>
-
-					<option value='Audi'>Audi</option>
-
-					<option value='Toyota'>Toyota</option>
-
-					<option value='Mercedes'>Mercedes</option>
-
-					<option value='Volkswagen'>Volkswagen</option>
-
-					<option value='Honda'>Honda</option>
-
-					<option value='Ford'>Ford</option>
-
-					<option value='Tesla'>Tesla</option>
+					{brands.map((brand) => (
+						<option key={brand} value={brand}>
+							{brand}
+						</option>
+					))}
 				</select>
 
 				<select
 					value={selectedCity}
 					onChange={(e) => {
 						setSelectedCity(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				>
 					<option value=''>All Cities</option>
 
-					<option value='Kyiv'>Kyiv</option>
-
-					<option value='Lviv'>Lviv</option>
-
-					<option value='Kharkiv'>Kharkiv</option>
-
-					<option value='Odessa'>Odessa</option>
-
-					<option value='Dnipro'>Dnipro</option>
-
-					<option value='Vinnytsia'>Vinnytsia</option>
-
-					<option value='Poltava'>Poltava</option>
-
-					<option value='Ternopil'>Ternopil</option>
-
-					<option value='Khmelnytskyi'>Khmelnytskyi</option>
-
-					<option value='Zhytomyr'>Zhytomyr</option>
-
-					<option value='Rivne'>Rivne</option>
-
-					<option value='Ivano-Frankivsk'>Ivano-Frankivsk</option>
-
-					<option value='Cherkasy'>Cherkasy</option>
-
-					<option value='Uzhhorod'>Uzhhorod</option>
+					{cities.map((city) => (
+						<option key={city} value={city}>
+							{city}
+						</option>
+					))}
 				</select>
 
 				<select
 					value={selectedFuel}
 					onChange={(e) => {
 						setSelectedFuel(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				>
 					<option value=''>All Fuel</option>
 
-					<option value='Petrol'>Petrol</option>
-
-					<option value='Diesel'>Diesel</option>
-
-					<option value='Hybrid'>Hybrid</option>
-
-					<option value='Electric'>Electric</option>
+					{fuels.map((fuel) => (
+						<option key={fuel} value={fuel}>
+							{fuel}
+						</option>
+					))}
 				</select>
 
 				<select
 					value={selectedTransmission}
 					onChange={(e) => {
 						setSelectedTransmission(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				>
 					<option value=''>All Transmission</option>
 
-					<option value='Automatic'>Automatic</option>
-
-					<option value='Manual'>Manual</option>
+					{transmissions.map((transmission) => (
+						<option key={transmission} value={transmission}>
+							{transmission}
+						</option>
+					))}
 				</select>
 
-				{/* перенос на новий рядок */}
 				<div className='line-break'></div>
+
 				<input
 					type='number'
 					placeholder='Min price'
 					value={minPrice}
 					onChange={(e) => {
 						setMinPrice(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				/>
@@ -271,6 +247,7 @@ const HomePage = () => {
 					value={maxPrice}
 					onChange={(e) => {
 						setMaxPrice(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				/>
@@ -279,6 +256,7 @@ const HomePage = () => {
 					value={sortBy}
 					onChange={(e) => {
 						setSortBy(e.target.value);
+
 						setCurrentPage(1);
 					}}
 				>
@@ -297,13 +275,17 @@ const HomePage = () => {
 			</div>
 
 			<div className='cars-grid'>
-				{paginatedCars.map((car) => (
-					<CarCard
-						key={car.id}
-						car={car}
-						onToggleFavorite={toggleFavorite}
-					/>
-				))}
+				{paginatedCars.length === 0 ? (
+					<h2>No cars found 😥</h2>
+				) : (
+					paginatedCars.map((car) => (
+						<CarCard
+							key={car.id}
+							car={car}
+							onToggleFavorite={toggleFavorite}
+						/>
+					))
+				)}
 			</div>
 
 			<div className='pagination'>
@@ -314,7 +296,9 @@ const HomePage = () => {
 					Prev
 				</button>
 
-				<span>Page {currentPage}</span>
+				<span>
+					Page {currentPage} / {totalPages}
+				</span>
 
 				<button
 					onClick={() => setCurrentPage(currentPage + 1)}
