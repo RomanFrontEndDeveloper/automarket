@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { cars as mockCars } from '../data/cars';
 import CarCard from '../components/CarCard/CarCard';
+import type { Car } from '../types/car.types';
 
 const HomePage = () => {
 	const [search, setSearch] = useState('');
@@ -20,7 +21,15 @@ const HomePage = () => {
 
 	const [currentPage, setCurrentPage] = useState(1);
 
-	const [cars, setCars] = useState(mockCars);
+	const [cars, setCars] = useState<Car[]>(() => {
+		const savedCars = localStorage.getItem('cars');
+
+		return savedCars ? JSON.parse(savedCars) : mockCars;
+	});
+
+	useEffect(() => {
+		localStorage.setItem('cars', JSON.stringify(cars));
+	}, [cars]);
 
 	const carsPerPage = 3;
 
@@ -131,6 +140,7 @@ const HomePage = () => {
 
 		setCars(updatedCars);
 	};
+
 	return (
 		<section>
 			<h1 className='page-title'>Find Your Perfect Car</h1>
