@@ -10,4 +10,5 @@ export type Car = {
 	isFavorite: boolean;
 	fuel: string;
 	transmission: string;
+	description: string;
 };

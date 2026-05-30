@@ -8,6 +8,7 @@ import DashboardPage from '../pages/DashboardPage';
 import SingleCarPage from '../pages/SingleCarPage';
 import RegisterPage from '../pages/RegisterPage';
 import AdminPage from '../pages/AdminPage';
+import CreateCarPage from '../pages/CreateCarPage';
 
 export const router = createBrowserRouter([
 	{
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
 			{
 				index: true,
 				element: <HomePage />,
+			},
+			{
+				path: '/create-car',
+				element: <CreateCarPage />,
 			},
 			{
 				path: 'cars',

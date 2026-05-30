@@ -320,3 +320,73 @@ form button:hover {
 form button:active {
 	transform: translateY(0);
 }
+
+/* =========================
+   CREATE CAR PAGE
+========================= */
+
+.create-car-page {
+	max-width: 800px;
+	margin: 40px auto;
+	padding: 20px;
+}
+
+.create-car-title {
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 32px;
+}
+
+.create-car-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.create-car-form input,
+.create-car-form select,
+.create-car-form textarea {
+	width: 100%;
+	padding: 12px;
+	font-size: 16px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	outline: none;
+}
+
+.create-car-form input:focus,
+.create-car-form select:focus,
+.create-car-form textarea:focus {
+	border-color: #007bff;
+}
+
+.create-car-form textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
+.create-btn {
+	padding: 14px;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: 600;
+	background: #007bff;
+	color: white;
+	transition: 0.3s;
+}
+
+.create-btn:hover {
+	background: #0056b3;
+}
+
+@media (max-width: 768px) {
+	.create-car-page {
+		padding: 15px;
+	}
+
+	.create-car-title {
+		font-size: 26px;
+	}
+}
