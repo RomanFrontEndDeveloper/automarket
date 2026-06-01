@@ -10,6 +10,7 @@ import RegisterPage from '../pages/RegisterPage';
 import AdminPage from '../pages/AdminPage';
 import CreateCarPage from '../pages/CreateCarPage';
 import EditCarPage from '../pages/EditCarPage';
+import MapPage from '../pages/MapPage';
 
 export const router = createBrowserRouter([
 	{
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'admin',
 				element: <AdminPage />,
+			},
+			{
+				path: '/map',
+				element: <MapPage />,
 			},
 		],
 	},

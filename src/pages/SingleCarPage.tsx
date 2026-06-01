@@ -29,6 +29,8 @@ const SingleCarPage = () => {
 
 					<p>City: {car.city}</p>
 					<p>City: {car.description}</p>
+					<p>Latitude: {car?.lat}</p>
+					<p>Longitude: {car?.lng}</p>
 
 					<p>Favorite: {car.isFavorite ? '❤️ Yes' : '🤍 No'}</p>
 					<Link to={`/cars/edit/${car?.id}`}>

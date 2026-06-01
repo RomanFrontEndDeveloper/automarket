@@ -15,6 +15,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'BMW X5 2021 року випуску в чудовому технічному та візуальному стані. Автомобіль оснащений автоматичною коробкою передач, комфортним салоном та сучасними системами безпеки.',
+		lat: 50.4511,
+		lng: 30.5234,
 	},
 	{
 		id: 2,
@@ -30,6 +32,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Audi A6 з економічним двигуном та багатою комплектацією. Просторий салон, якісні матеріали оздоблення та комфорт для далеких поїздок.',
+		lat: 49.8397,
+		lng: 24.0277,
 	},
 	{
 		id: 3,
@@ -45,6 +49,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.9935,
+		lng: 36.2314,
 	},
 	{
 		id: 4,
@@ -60,6 +66,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 46.4825,
+		lng: 30.7233,
 	},
 	{
 		id: 5,
@@ -75,6 +83,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 48.4647,
+		lng: 35.0462,
 	},
 	{
 		id: 6,
@@ -90,6 +100,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.2331,
+		lng: 28.4682,
 	},
 	{
 		id: 7,
@@ -105,6 +117,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.5883,
+		lng: 34.5514,
 	},
 	{
 		id: 8,
@@ -120,6 +134,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 50.4541,
+		lng: 30.5214,
 	},
 	{
 		id: 9,
@@ -135,6 +151,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.5535,
+		lng: 25.5948,
 	},
 	{
 		id: 10,
@@ -150,6 +168,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.8357,
+		lng: 24.0257,
 	},
 	{
 		id: 11,
@@ -165,6 +185,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 50.4601,
+		lng: 30.5244,
 	},
 	{
 		id: 12,
@@ -180,6 +202,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.4229,
+		lng: 26.9871,
 	},
 	{
 		id: 13,
@@ -195,6 +219,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 50.2547,
+		lng: 28.6587,
 	},
 	{
 		id: 14,
@@ -210,6 +236,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 50.6199,
+		lng: 26.2516,
 	},
 	{
 		id: 15,
@@ -225,6 +253,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.2321,
+		lng: 28.4682,
 	},
 	{
 		id: 16,
@@ -240,6 +270,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 48.9226,
+		lng: 24.7111,
 	},
 	{
 		id: 17,
@@ -255,6 +287,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 50.4571,
+		lng: 30.5134,
 	},
 	{
 		id: 18,
@@ -270,6 +304,8 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.8457,
+		lng: 24.0297,
 	},
 	{
 		id: 19,
@@ -285,6 +321,8 @@ export const cars: Car[] = [
 		transmission: 'Manual',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 49.4444,
+		lng: 32.0598,
 	},
 	{
 		id: 20,
@@ -300,5 +338,7 @@ export const cars: Car[] = [
 		transmission: 'Automatic',
 		description:
 			'Надійна Toyota Camry з хорошою історією обслуговування. Ідеальний вибір для щоденного використання та сімейних подорожей.',
+		lat: 48.6208,
+		lng: 22.2879,
 	},
 ];

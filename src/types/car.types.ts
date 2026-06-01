@@ -11,4 +11,7 @@ export type Car = {
 	fuel: string;
 	transmission: string;
 	description: string;
+
+	lat: number;
+	lng: number;
 };

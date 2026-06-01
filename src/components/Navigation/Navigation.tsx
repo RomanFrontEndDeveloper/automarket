@@ -31,6 +31,9 @@ const Navigation = () => {
 				<li>
 					<Link to='/admin'>Admin</Link>
 				</li>
+				<li>
+					<Link to='/map'>Map</Link>
+				</li>
 			</ul>
 		</nav>
 	);
