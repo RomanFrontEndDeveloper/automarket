@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { cars } from '../data/cars';
+import Toast from '../components/Toast';
 
 const brands = [
 	'BMW',
@@ -59,12 +60,72 @@ const EditCarPage = () => {
 
 	const [description, setDescription] = useState(car?.description || '');
 
+	const [toast, setToast] = useState('');
+
+	const showToast = (message: string) => {
+		setToast(message);
+
+		setTimeout(() => {
+			setToast('');
+		}, 3000);
+	};
+
 	if (!car) {
 		return <h2>Car not found</h2>;
 	}
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
+
+		if (!title.trim()) {
+			showToast('Title is required');
+			return;
+		}
+
+		if (!brand) {
+			showToast('Select brand');
+			return;
+		}
+
+		if (!model.trim()) {
+			showToast('Model is required');
+			return;
+		}
+
+		if (year <= 0) {
+			showToast('Invalid year');
+			return;
+		}
+
+		if (price <= 0) {
+			showToast('Invalid price');
+			return;
+		}
+
+		if (!city) {
+			showToast('Select city');
+			return;
+		}
+
+		if (!image.trim()) {
+			showToast('Image URL is required');
+			return;
+		}
+
+		if (!fuel) {
+			showToast('Select fuel');
+			return;
+		}
+
+		if (!transmission) {
+			showToast('Select transmission');
+			return;
+		}
+
+		if (!description.trim()) {
+			showToast('Description is required');
+			return;
+		}
 
 		const updatedCar = {
 			id: car.id,
@@ -82,11 +143,15 @@ const EditCarPage = () => {
 		};
 
 		console.log(updatedCar);
+
+		showToast('Car updated successfully');
 	};
 
 	return (
 		<section className='create-car-page'>
 			<h1 className='create-car-title'>Edit Car</h1>
+
+			{toast && <Toast message={toast} />}
 
 			<form className='create-car-form' onSubmit={handleSubmit}>
 				<input

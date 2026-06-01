@@ -5,17 +5,42 @@ const LoginPage = () => {
 
 	const [password, setPassword] = useState('');
 
+	const [error, setError] = useState('');
+
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
 
-		console.log(email);
+		if (!email || !password) {
+			setError('All fields are required');
 
-		console.log(password);
+			return;
+		}
+
+		if (!email.includes('@')) {
+			setError('Invalid email');
+
+			return;
+		}
+
+		if (password.length < 6) {
+			setError('Password must be at least 6 characters');
+
+			return;
+		}
+
+		setError('');
+
+		console.log({
+			email,
+			password,
+		});
 	};
 
 	return (
 		<section>
 			<h1>Login</h1>
+
+			{error && <p className='error'>{error}</p>}
 
 			<form onSubmit={handleSubmit}>
 				<input

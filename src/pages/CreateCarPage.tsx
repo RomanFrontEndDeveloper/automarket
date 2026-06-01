@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Toast from '../components/Toast';
 
 const brands = [
 	'BMW',
@@ -53,8 +54,77 @@ const CreateCarPage = () => {
 
 	const [description, setDescription] = useState('');
 
+	const [toast, setToast] = useState('');
+
+	const showToast = (message: string) => {
+		setToast(message);
+
+		setTimeout(() => {
+			setToast('');
+		}, 3000);
+	};
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
+
+		if (!title.trim()) {
+			showToast('Title is required');
+			return;
+		}
+
+		if (!brand) {
+			showToast('Select brand');
+			return;
+		}
+
+		if (!model.trim()) {
+			showToast('Model is required');
+			return;
+		}
+
+		if (!year) {
+			showToast('Year is required');
+			return;
+		}
+
+		if (Number(year) <= 0) {
+			showToast('Invalid year');
+			return;
+		}
+
+		if (!price) {
+			showToast('Price is required');
+			return;
+		}
+
+		if (Number(price) <= 0) {
+			showToast('Invalid price');
+			return;
+		}
+
+		if (!city) {
+			showToast('Select city');
+			return;
+		}
+
+		if (!image.trim()) {
+			showToast('Image URL is required');
+			return;
+		}
+
+		if (!fuel) {
+			showToast('Select fuel');
+			return;
+		}
+
+		if (!transmission) {
+			showToast('Select transmission');
+			return;
+		}
+
+		if (!description.trim()) {
+			showToast('Description is required');
+			return;
+		}
 
 		const newCar = {
 			title,
@@ -71,11 +141,15 @@ const CreateCarPage = () => {
 		};
 
 		console.log(newCar);
+
+		showToast('Car created successfully');
 	};
 
 	return (
 		<section className='create-car-page'>
 			<h1 className='create-car-title'>Create Car</h1>
+
+			{toast && <Toast message={toast} />}
 
 			<form className='create-car-form' onSubmit={handleSubmit}>
 				<input
