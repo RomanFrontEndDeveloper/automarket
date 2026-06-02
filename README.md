@@ -1,8 +1,10 @@
 # 🚗 AutoMarket
 
-Fullstack автомобільний маркетплейс.
+Навчальний проєкт автомобільного маркетплейсу, створений для практики React, TypeScript та сучасної Frontend-архітектури.
 
-Користувачі можуть переглядати авто, шукати, фільтрувати, додавати в обране, авторизуватись та створювати власні оголошення.
+Користувач може переглядати список автомобілів, шукати та фільтрувати їх, додавати в обране, переглядати детальну інформацію про авто та працювати з картою.
+
+---
 
 ## 🛠 Tech Stack
 
@@ -12,53 +14,50 @@ Fullstack автомобільний маркетплейс.
 - TypeScript
 - Vite
 - React Router DOM
-- Axios
-- Leaflet (Maps)
-
-### Backend
-
-- Node.js
-- Express.js
-- TypeScript
-- MongoDB
-- Mongoose
-- JWT Authentication
-- bcrypt
-
-### Deploy
-
-- Frontend: Vercel
-- Backend: Render
-- Images: Cloudinary
+- Leaflet
+- CSS
 
 ---
 
 ## ✨ Features
 
-### User Features
+### Cars Catalog
 
-- 🔍 Search cars
-- 🎯 Filters
-- 📄 Single car page
-- ❤️ Favorites
-- 👤 Authentication
-- 📝 Create/Edit/Delete own cars
-- 📍 Car map location
+- 🚗 Cars List
+- 📄 Single Car Page
+- 🔍 Search Cars
+- 🎯 Multiple Filters
+- 💰 Price Sorting
 - 📦 Pagination
-- 🔒 Protected pages
 
-### Admin Features
+### Favorites
 
-- 👥 Users management
-- 🚗 Cars management
-- ❌ Delete cars
-- 🔨 Ban users
+- ❤️ Add to Favorites
+- 💾 Favorites saved in localStorage
+
+### Forms
+
+- 👤 Login Form
+- 📝 Register Form
+- 🚘 Create Car Form
+- ✏️ Edit Car Form
+- ✅ Form Validation
+
+### Maps
+
+- 📍 Cars Map
+- 📌 Car Markers
+- 🗺 Single Car Location
+
+### Dashboard
+
+- 🚗 My Cars
+- ❤️ Favorites
+- 👤 Profile
 
 ---
 
 ## 📁 Project Structure
-
-### Frontend
 
 ```txt
 src/
@@ -78,52 +77,6 @@ src/
 └── main.tsx
 ```
 
-### Backend
-
-```txt
-backend/
-│
-└── src/
-    ├── controllers/
-    ├── routes/
-    ├── middleware/
-    ├── services/
-    ├── models/
-    ├── types/
-    ├── config/
-    └── utils/
-```
-
----
-
-## 🚀 Getting Started
-
-### Clone repository
-
-```bash
-git clone <your-repository-url>
-```
-
-### Frontend Setup
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run development server:
-
-```bash
-npm run dev
-```
-
-Frontend runs on:
-
-```txt
-http://localhost:5173
-```
-
 ---
 
 ## 📌 Routes
@@ -141,74 +94,85 @@ http://localhost:5173
 
 ---
 
-## 🔐 Authentication
+## 🚀 Getting Started
 
-Authentication is implemented using:
+### Install dependencies
 
-- JWT Token
-- Protected Routes
-- Role-based access
+```bash
+npm install
+```
 
-Roles:
+### Run development server
+
+```bash
+npm run dev
+```
+
+Application runs on:
 
 ```txt
-user
-admin
+http://localhost:5173
 ```
 
 ---
 
-## 📦 API Features
+## 📚 What I Practiced
 
-### Cars
+### React
 
-```http
-GET /cars
-GET /cars/:id
-POST /cars
-PATCH /cars/:id
-DELETE /cars/:id
-```
+- Components
+- Props
+- State Management
+- Conditional Rendering
+- Reusable UI
 
-### Auth
+### React Router
 
-```http
-POST /register
-POST /login
-GET /me
-```
+- Routes
+- Dynamic Routes
+- Navigation
+- useParams
 
-### Favorites
+### TypeScript
 
-```http
-POST /favorites
-GET /my-favorites
-```
+- Types
+- Interfaces
+- Component Props Typing
 
-### Admin
+### JavaScript
 
-```http
-GET /users
-DELETE /delete-car/:id
-PATCH /ban-user/:id
-```
+- Array.map()
+- Array.filter()
+- Array.sort()
+- Array.slice()
+- Array.find()
+
+### Browser APIs
+
+- localStorage
+
+### Maps
+
+- Leaflet
+- Markers
+- Coordinates
 
 ---
 
 ## 🎯 Learning Goals
 
-This project was built to practice:
+This project helps practice:
 
 - React Architecture
 - TypeScript
-- React Router
-- State Management
-- CRUD Operations
-- JWT Authentication
-- MongoDB + Mongoose
-- Express.js
-- REST API
-- Fullstack Development
+- Routing
+- Search & Filtering
+- Pagination
+- Form Handling
+- Validation
+- Local Storage
+- Map Integration
+- Dashboard UI
 
 ---
 
@@ -222,4 +186,4 @@ Coming soon...
 
 Roman Okhremov
 
-Junior Frontend / Future Fullstack Developer
+Junior Frontend Developer
