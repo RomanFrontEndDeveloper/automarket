@@ -53,6 +53,7 @@ button {
 	width: 100%;
 	margin: 0 auto;
 	padding: 30px 20px;
+	padding-top: 100px;
 }
 
 /* =========================
@@ -67,6 +68,14 @@ button {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	z-index: 1000;
+	box-sizing: border-box;
 }
 
 .nav-list {
@@ -449,6 +458,10 @@ form button:active {
 	z-index: 1000;
 }
 
+/* =========================
+  POPUP-IMAGE
+========================= */
+
 .popup-image {
 	width: 180px;
 	height: 120px;
@@ -458,4 +471,91 @@ form button:active {
 	border-radius: 8px;
 
 	margin-bottom: 10px;
+}
+
+/* =========================
+   SINGLE CAR MAP
+========================= */
+
+.single-car-map {
+	height: 400px;
+
+	margin-top: 20px;
+
+	border-radius: 12px;
+
+	overflow: hidden;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-page {
+	padding: 40px;
+}
+
+.dashboard-page h1 {
+	margin-bottom: 30px;
+}
+
+.dashboard-grid {
+	display: grid;
+
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+	gap: 20px;
+}
+
+.dashboard-card {
+	background: white;
+
+	padding: 20px;
+
+	border-radius: 12px;
+
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card h2 {
+	margin-bottom: 15px;
+}
+
+/* =========================
+   ADMIN PAGE
+========================= */
+
+.admin-page {
+	padding: 40px;
+}
+
+.admin-page h1 {
+	margin-bottom: 30px;
+}
+
+.admin-page h2 {
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+.admin-list {
+	display: grid;
+
+	gap: 15px;
+}
+
+.admin-card {
+	display: flex;
+
+	justify-content: space-between;
+
+	align-items: center;
+
+	padding: 15px;
+
+	background: white;
+
+	border-radius: 10px;
+
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const LoginPage = () => {
 	const [email, setEmail] = useState('');
@@ -6,6 +6,16 @@ const LoginPage = () => {
 	const [password, setPassword] = useState('');
 
 	const [error, setError] = useState('');
+
+	useEffect(() => {
+		if (!error) return;
+
+		const timer = setTimeout(() => {
+			setError('');
+		}, 3000);
+
+		return () => clearTimeout(timer);
+	}, [error]);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
